@@ -15,19 +15,22 @@ language_translator = LanguageTranslatorV3(
     authenticator=authenticator
 )
 
-language_translator.set_service_url('{url}')
+language_translator.set_service_url('{URL}')
 
-def translator(texttotranslate):
+def languagetranslator(texttotranslate):
     # This function translates text from one language to another
     translation = language_translator.translate(
     text=texttotranslate,
     model_id='en-fr').get_result()
-    return json.dumps(translation, indent=2, ensure_ascii=False)
-def englishToFrench(englishtext):
+    if texttotranslate != '':
+        return json.dumps(translation, indent=2, ensure_ascii=False)
+    else:
+        return "Please enter some text to translate."
+def englishtoFrench(englishtext):
     """English to French Translation"""
-    frenchtext=translator(englishtext)
+    frenchtext=languagetranslator(englishtext)
     return frenchtext
-def frenchToEnglish(frenchtext):
+def frenchtoEnglish(frenchtext):
     """French to English Translation"""
-    englishtext=translator(frenchtext)
+    englishtext=languagetranslator(frenchtext)
     return englishtext
