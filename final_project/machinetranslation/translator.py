@@ -9,7 +9,7 @@ APIKEY=os.environ['API_KEY']
 URL=os.environ['URL']
 authenticator=IAMAuthenticator(APIKEY)
 language_translator=LanguageTranslatorV3(version='2018-05-01', authenticator=authenticator)
-language_translator.set_service_url('{URL}')
+language_translator.set_service_url(URL)
 def languagetranslator(texttotranslate):
     """This function translates text from one language to another"""
     translation = language_translator.translate(
