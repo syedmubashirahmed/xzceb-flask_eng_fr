@@ -13,13 +13,12 @@ language_translator.set_service_url(URL)
 def englishtofrench(englishtext):
     """English to French Translation"""
     returnvalue=''
-    if englishtext !='':
+    if englishtext!='':
         translation=language_translator.translate(
             text=englishtext,model_id='en-fr').get_result()
-        todictionary=json.loads(translation)
-        returnvalue=(todictionary["translations"][0]["translation"])
+        returnvalue=(translation["translations"][0]["translation"])
     else:
-        returnvalue="Value entered cannot be null"
+        returnvalue="Text entered is invalid"
     return returnvalue
 def frenchtoenglish(frenchtext):
     """French to English Translation"""
@@ -27,12 +26,8 @@ def frenchtoenglish(frenchtext):
     if frenchtext !='':
         translation=language_translator.translate(
              text=frenchtext,model_id='fr-en').get_result()
-        todictionary=json.loads(translation)
-        returnvalue=(todictionary["translation"][0]["translation"])
+        returnvalue=(translation["translations"][0]["translation"])
     else:
-        returnvalue="Value entered cannot be null"
+        returnvalue="Text entered is invalid"
     return returnvalue
-print(englishtofrench('hello'))
-print(frenchtoenglish('Bonjour'))
-print(englishtofrench(''))
-print(frenchtoenglish(''))
+    
