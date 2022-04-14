@@ -1,4 +1,6 @@
 """Language Translator"""
+#  apikey="2n9ksWcmASg1fqufKsysdIjLr-qQvepVXDKDM3TSk_nO"
+ # url="https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/e6d3bba4-30c2-4ede-8ec0-fd92271c3d93"
 import json
 import os
 from ibm_watson import LanguageTranslatorV3
