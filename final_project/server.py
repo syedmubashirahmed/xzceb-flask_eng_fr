@@ -12,15 +12,16 @@ def englishToFrench():
     textToTranslate = request.args.get('textToTranslate')
     #Write your code here
     returnedvalue=translator.englishtofrench(textToTranslate)
-    return returnedvalue
-    #return textToTranslate
-
+    return '''<h1>The translation of {} in french  is: {}</h1>'''.format(textToTranslate,returnedvalue)
+   
+    
 @app.route("/frenchToEnglish")
 def frenchToEnglish():
     textToTranslate = request.args.get('textToTranslate')
     # Write your code here
     returnedvalue=translator.frenchtoenglish(textToTranslate)
-    return returnedvalue
+    return '''<h1>The translation of {} in English is: {} </h1>'''.format(textToTranslate,returnedvalue)
+    #return "french to english"
     
     
 @app.route("/")

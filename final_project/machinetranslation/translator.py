@@ -33,3 +33,5 @@ def frenchtoenglish(frenchtext):
         returnvalue="Text entered is invalid"
     return returnvalue
     
+#print(englishtofrench("hello how are you"))
+#print(frenchtoenglish("Bonjour"))
