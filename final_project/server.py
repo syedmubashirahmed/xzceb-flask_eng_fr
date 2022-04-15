@@ -1,27 +1,21 @@
-import json
-import machinetranslation
+from flask import Flask, request
 from machinetranslation import translator
-from flask import Flask, render_template, request
 app = Flask("Web Translator")
-@app.route("/englishToFrench")
-def englishToFrench():
-    textToTranslate = request.args.get('textToTranslate')
-    #Write your code here
-    returnedvalue=translator.englishtofrench(textToTranslate)
-    return '''<h1>The translation of {} in french  is: {}</h1>'''.format(textToTranslate,returnedvalue)
-@app.route("/frenchToEnglish")
-def frenchToEnglish():
-    textToTranslate = request.args.get('textToTranslate')
-    # Write your code here
-    returnedvalue=translator.frenchtoenglish(textToTranslate)
-    return '''<h1>The translation of {} in English is: {} </h1>'''.format(textToTranslate,returnedvalue)
-    #return "french to english"
-    
-    
+@app.route("/englishtofrench")
+def englishtofrench():
+    """English to French"""
+    texttotranslate = request.args.get('textToTranslate')
+    returnedvalue=translator.englishtofrench(texttotranslate)
+    return f"<h1>The translation of {texttotranslate} in french  is: {returnedvalue}</h1>"
+@app.route("/frenchtoenglish")
+def frenchtoenglish():
+    """French to English"""
+    texttotranslate = request.args.get('textToTranslate')
+    returnedvalue=translator.frenchtoenglish(texttotranslate)
+    return f"<h1>The translation of {texttotranslate} in English is: {returnedvalue} </h1>"
 @app.route("/")
-def renderIndexPage():
-    # Write the code to render template
+def renderindexpage():
+    """ Write the code to render template"""
     return "hello World"
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
