@@ -1,5 +1,5 @@
-
-
+import unittest
+from  machinetranslation import translator
 class EnglishtoFrench(unittest.TestCase):
     def englishtofrenchtest(self): #This function translates english to french
         self.assertEqual(translator.englishtofrench(''),'Text entered is invalid')
